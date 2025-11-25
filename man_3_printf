@@ -24,7 +24,7 @@ string may contain:
 .IP \(bu 3
 ordinary characters, printed exactly as they appear;
 .IP \(bu 3
-conversion specifiers introduced by the character '\%', replaced by the
+conversion specifiers introduced by the character %, replaced by the
 text representation of the corresponding argument.
 
 If
@@ -75,12 +75,12 @@ Prints a signed decimal integer.
 
 .TP
 .B %%
-Prints a literal '\%' character.
+Prints a literal % character.
 No argument is consumed.
 
 .PP
-If an unknown character follows '\%', this implementation prints the
-'\%' and the unknown specifier, then continues processing the rest
+If an unknown character follows %, this implementation prints the
+% and the unknown specifier, then continues processing the rest
 of the string.
 
 .PP
