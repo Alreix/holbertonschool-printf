@@ -1,0 +1,178 @@
+.\" Man page for _printf - Holberton School
+.TH _PRINTF 3 "November 27, 2025" "Holberton School" "C Library Functions"
+
+.SH NAME
+_printf \- custom formatted output function
+
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+
+.SH DESCRIPTION
+.B _printf()
+is a custom function that prints formatted output to the standard output
+(stdout), similar to
+.BR printf (3).
+It takes a format string
+.I format
+as its first parameter and a variable list of arguments.
+
+The
+.I format
+string may contain:
+.IP \(bu 3
+ordinary characters, printed exactly as they appear;
+.IP \(bu 3
+conversion specifiers introduced by the character '\%', replaced by the
+text representation of the corresponding argument.
+
+If
+.I format
+is
+.BR NULL ,
+.B _printf()
+returns \-1 and does not print anything.
+
+.PP
+This implementation uses the library
+.BR stdarg (3)
+(\fB<stdarg.h>\fR) to read the variable argument list, and a structure of
+function pointers to associate each conversion specifier with the
+appropriate printing function.
+
+.PP
+The following conversion specifiers are supported:
+
+.TP
+.B %c
+Prints a single character.
+The argument must be of type
+.B int
+(type promotion applies).
+
+.TP
+.B %s
+Prints a null-terminated string.
+The argument must be of type
+.B char *.
+If the string is
+.BR NULL ,
+nothing is printed for this specifier.
+
+.TP
+.B %d
+Prints a signed decimal integer.
+The argument must be of type
+.B int.
+Negative numbers are printed with a leading '\-'.
+
+.TP
+.B %i
+Same as
+.BR %d .
+Prints a signed decimal integer.
+
+.TP
+.B %%
+Prints a literal '\%' character.
+No argument is consumed.
+
+.PP
+If an unknown character follows '\%', this implementation prints the
+'\%' and the unknown specifier, then continues processing the rest
+of the string.
+
+.PP
+This version of
+.B _printf()
+does not implement all features provided by the standard
+.BR printf (3).
+The following are
+.B not supported:
+
+.IP "Flags"
+The flags
+.BR '-' ,
+.BR '+' ,
+.BR ' ' ,
+.BR '0'
+and
+.BR '#'
+are not interpreted.
+
+.IP "Field width"
+No minimum width is supported.
+
+.IP "Precision"
+Precision is not implemented.
+
+.IP "Length modifiers"
+Length modifiers such as
+.BR h ,
+.BR l ,
+.BR q ,
+.BR L ,
+.BR j ,
+.BR z ,
+.BR t ,
+etc. are not supported.
+
+.SH RETURN VALUE
+On success,
+.B _printf()
+returns the total number of characters printed.
+On error, it returns \-1.
+An error occurs when
+.I format
+is
+.BR NULL .
+
+.SH EXAMPLE
+.nf
+#include "main.h"
+
+int main(void)
+{
+	_printf("Let's try to printf a simple sentence.\\n");
+	_printf("Character: %c\\n", 'H');
+	_printf("String: %s\\n", "Holberton");
+	_printf("Integer: %d and %i\\n", 420, -98);
+	_printf("Negative: %d\\n", -762534);
+	_printf("Percent sign: %%\\n");
+    _printf("Unknown: %r\\n");
+	return (0);
+}
+.fi
+
+.PP
+Program output:
+
+.nf
+Let's try to printf a simple sentence.
+Character: H
+String: Holberton
+Integer: 420 and -98
+Negative: -762534
+Percent sign: %
+Unknown : %r
+.fi
+
+.SH DATE
+This manual page describes the version of
+.B _printf
+released on November 27, 2025.
+
+.SH AUTHORS
+This
+.B _printf
+project was developed as part of the Holberton School curriculum by:
+.PP
+Morgane Abbattista (Alreix)
+.br
+Nicolas Da Silva (NicolasDS83600)
+
+.SH SEE ALSO
+.BR printf (3),
+.BR putchar (3),
+.BR stdarg (3)
