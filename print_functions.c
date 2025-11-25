@@ -2,14 +2,28 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+/**
+ * print_char - Print a single character
+ * @args: List of arguments
+ *
+ * Return: Number of characters printed
+ */
+
 int print_char(va_list args)
 {
 	int len = 0;
 	char character = va_arg(args, int);
+
 	len += _putchar(character);
-	return(len);
+	return (len);
 }
 
+/**
+ * print_string - Print a string
+ * @args: List of arguments
+ *
+ * Return: Number of characters printed
+ */
 int print_string(va_list args)
 {
 	int len = 0;
@@ -17,12 +31,19 @@ int print_string(va_list args)
 
 	if (string == NULL)
 		return (0);
+
 	while (string[len])
 		len += _putchar(string[len]);
-		
-	return(len);
+
+	return (len);
 }
 
+/**
+ * print_percent - Print a percent sign
+ * @args: List of arguments (unused)
+ *
+ * Return: Number of characters printed
+ */
 int print_percent(va_list args)
 {
 	int len = 0;
@@ -31,23 +52,36 @@ int print_percent(va_list args)
 	return (len);
 }
 
+/**
+ * print_int_helper - Recursively print an integer
+ * @num: Integer to print
+ *
+ * Return: Number of characters printed
+ */
 int print_int_helper(int num)
 {
 	int len = 0;
-	if (num / 10)
-        len += print_int_helper(num / 10);
 
-    _putchar('0' + (num % 10));
+	if (num / 10)
+	len += print_int_helper(num / 10);
+
+	_putchar('0' + (num % 10));
 	return (len);
 }
 
+/**
+ * print_int - Print an integer from a va_list
+ * @args: List of arguments
+ *
+ * Return: Number of characters printed
+ */
 int print_int(va_list args)
 {
 	int len = 0;
 	int num = va_arg(args, int);
 
 	if (num == 0)
-		return(len);
+		return (len);
 
 	if (num < 0)
 	{
@@ -57,6 +91,6 @@ int print_int(va_list args)
 
 	if (num >= 10)
 		len += print_int_helper(num);
-		
-	return(len);
+
+	return (len);
 }
