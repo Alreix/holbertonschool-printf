@@ -77,27 +77,28 @@ int print_int_helper(int num)
  */
 int print_int(va_list args)
 {
+	long INTMIN = -2147483648;
 	int len = 0;
 	int num = va_arg(args, int);
 
 	if (num == 0)
-	len += _putchar('0');
+	{
+		len += _putchar('0');
 		return (len);
+	}
 
-	if (num < 0)
+	if (num == INTMIN)
+	{
+		len += _putchar('-');
+		len += _putchar('2');
+		num = 147483648;
+	}
+
+	else if (num < 0)
 	{
 		len += _putchar('-');
 		num = -num;
 	}
-
-	if (num > 0 && num <= 9)
-	{
-		len += _putchar(num + '0');
-		return (len);
-	}
-
-
-	if (num >= 10)
 		len += print_int_helper(num);
 
 	return (len);
