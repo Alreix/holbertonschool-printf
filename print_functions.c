@@ -30,7 +30,7 @@ int print_string(va_list args)
 	char *string = va_arg(args, char *);
 
 	if (string == NULL)
-		return (0);
+		string = "(null)";
 
 	while (string[len])
 		len += _putchar(string[len]);
@@ -65,7 +65,7 @@ int print_int_helper(int num)
 	if (num / 10)
 	len += print_int_helper(num / 10);
 
-	_putchar('0' + (num % 10));
+	len += _putchar('0' + (num % 10));
 	return (len);
 }
 
@@ -81,6 +81,7 @@ int print_int(va_list args)
 	int num = va_arg(args, int);
 
 	if (num == 0)
+	len += _putchar('0');
 		return (len);
 
 	if (num < 0)
@@ -88,6 +89,13 @@ int print_int(va_list args)
 		len += _putchar('-');
 		num = -num;
 	}
+
+	if (num > 0 && num <= 9)
+	{
+		len += _putchar(num + '0');
+		return (len);
+	}
+
 
 	if (num >= 10)
 		len += print_int_helper(num);
