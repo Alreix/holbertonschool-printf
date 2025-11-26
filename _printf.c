@@ -16,8 +16,8 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, len = 0;
 	va_list args;
-	printer_t printer[] = {{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'d', print_int}, {'i', print_int}, {'\0', NULL}};
+	printer_t printer[] = {{'c', print_char}, {'s', print_string},
+		{'%', print_percent}, {'d', print_int}, {'i', print_int}, {'\0', NULL}};
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
-				return(-1);
+				return (-1);
 			for (j = 0; printer[j].index != '\0'; j++)
 			{
 				if (format[i + 1] == printer[j].index)
