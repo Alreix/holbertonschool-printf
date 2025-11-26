@@ -140,7 +140,10 @@ int main(void)
 	_printf("Integer: %d and %i\\n", 420, -98);
 	_printf("Negative: %d\\n", -762534);
 	_printf("Percent sign: %%\\n");
-    _printf("Unknown: %r\\n");
+	_printf("Unknown: %r\\n");
+	_printf("");
+	_printf("End percent: %");
+	_printf("INTMIN: %d\n", -2147483648);
 	return (0);
 }
 .fi
@@ -156,6 +159,9 @@ Integer: 420 and -98
 Negative: -762534
 Percent sign: %
 Unknown : %r
+(null)
+End percent:
+INTMIN: -2147483648
 .fi
 
 .SH DATE
