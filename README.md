@@ -11,11 +11,6 @@ Supported format specifiers
 |%c|Prints a single character|
 |%s|Prints a string of characters|
 |%d, %i|Prints a signed decimal integer|
-|%b|Prints an unsigned integer in binary|
-|%u|Prints an unsigned decimal integer|
-|%o|Prints an unsigned integer in octal|
-|%x|Prints an unsigned integer in lowercase hexadecimal|
-|%X|Prints an unsigned integer in uppercase hexadecimal|
 |%%|Prints a literal % character|
 
 The goal of this project is to understand variadic functions, parsing of format strings, handling of conversion specifiers, and manual output formatting without using the real printf.
@@ -74,8 +69,8 @@ Summary of sections:
 
 For more details, please refer to the full man page below.
 
-![_printf man page 1](Images/_printf man page 1.png)
-![_printf man page 2](Images/_printf man page 2.png)
+![_printf_man_page_1](Images/_printf man page 1.png)
+![_printf_man_page_2](Images/_printf man page 2.png)
 
 6. Testing
 
@@ -93,7 +88,7 @@ This will detects memory leaks, invalid memory accesses, and use of uninitialize
 
 The flowchart below illustrates the main steps and logic of the project.
 
-![flowchart _printf](Images/flowchart _printf.png)
+![flowchart_printf](Images/flowchart _printf.png)
 
 8. Additional Notes
 
