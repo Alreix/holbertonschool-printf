@@ -69,8 +69,8 @@ Summary of sections:
 
 For more details, please refer to the full man page below.
 
-![_printf_man_page_1](Images/_printf man page 1.png)
-![_printf_man_page_2](Images/_printf man page 2.png)
+![_printf_man_page_1](Images/_printf_man_page_1.png)
+![_printf_man_page_2](Images/_printf_man_page_2.png)
 
 6. Testing
 
@@ -88,7 +88,7 @@ This will detects memory leaks, invalid memory accesses, and use of uninitialize
 
 The flowchart below illustrates the main steps and logic of the project.
 
-![flowchart_printf](Images/flowchart _printf.png)
+![flowchart_printf](Images/flowchart_printf.png)
 
 8. Additional Notes
 
