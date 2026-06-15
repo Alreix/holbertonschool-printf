@@ -203,6 +203,7 @@ To display it, use:
 man ./man_3_printf
 
 or man 3 _printf
+```
 
 Summary of sections:
 
