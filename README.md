@@ -201,51 +201,70 @@ To display it, use:
 
 ```bash
 man ./man_3_printf
-
-or man 3 _printf
 ```
 
-Summary of sections:
+Or, depending on your environment:
 
-    * NAME — brief description
+```bash
+man 3 _printf
+```
 
-    * SYNOPSIS — basic usage
+### Summary of sections
 
-    * DESCRIPTION — main features
-
-    * RETURN VALUE — descriptions of returned values
-
-    * EXAMPLES — usage examples
-
-    * COMPLEMENTARIES INFORMATIONS — date, authors etc
+- **NAME** — brief description
+- **SYNOPSIS** — basic usage
+- **DESCRIPTION** — main features
+- **RETURN VALUE** — descriptions of returned values
+- **EXAMPLES** — usage examples
+- **ADDITIONAL INFORMATION** — date, authors, and extra notes
 
 For more details, please refer to the full man page below.
 
-![_printf_man_page_1](Images/_printf man page 1.png)
-![_printf_man_page_2](Images/_printf man page 2.png)
+![_printf_man_page_1](Images/_printf%20man%20page%201.png)
+![_printf_man_page_2](Images/_printf%20man%20page%202.png)
 
-6. Testing
+---
 
-A main.c file was used for testing. Compile and run:
+## Testing
 
+A `main.c` file was used for testing.
+
+Compile and run:
+
+```bash
 gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
+```
 
-To ensure memory safety, use the command:
+To ensure memory safety, use the following command:
 
-valgrind ./_printf.c
+```bash
+valgrind --leak-check=full ./_printf
+```
 
-This will detects memory leaks, invalid memory accesses, and use of uninitialized memory.
+This will detect:
 
-7. Flowchart
+- memory leaks;
+- invalid memory accesses;
+- use of uninitialized memory.
+
+---
+
+## Flowchart
 
 The flowchart below illustrates the main steps and logic of the project.
 
-![flowchart_printf](Images/flowchart _printf.png)
+![flowchart_printf](Images/flowchart%20_printf.png)
 
-8. Additional Notes
+---
+
+## Additional Notes
 
 The project emphasizes modularity: each specifier is handled by a dedicated function.
-Care must be taken with pointer handling.
-Variadic functions (va_list, va_start, va_arg, va_end) are crucial to the implementation.
 
-The authors of this project are Morgane Abbattista (Alreix) and Nicolas Da Silva (NicolasDS83600). The project was initialized on 11/24/2025 and completed on 11/27/2025.
+Care must be taken with pointer handling.
+
+Variadic functions such as `va_list`, `va_start`, `va_arg`, and `va_end` are crucial to the implementation.
+
+The authors of this project are **Morgane Abbattista** ([Alreix](https://github.com/Alreix)) and **Nicolas Da Silva** ([NicolasDS83600](https://github.com/NicolasDS83600)).
+
+The project was initialized on **11/24/2025** and completed on **11/27/2025**.
